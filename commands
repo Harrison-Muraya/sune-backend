@@ -30,6 +30,10 @@ python manage.py createsuperuser
 
 # Create sample categories and streams
 python manage.py shell < create_sample_data.py
+# another way of running create_sample_data.py
+python manage.py shell
+    # Then inside the shell:
+    exec(open('create_sample_data.py').read())
 
 # Run Development Server
 python manage.py runserver
