@@ -38,3 +38,6 @@ python manage.py shell
 # Run Development Server
 python manage.py runserver 192.168.100.12:8000
 
+# For HTTPS development, you can generate a self-signed certificate and run the server with SSL:
+python manage.py runserver_plus --cert-file cert.pem 0.0.0.0:8000
+
