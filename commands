@@ -1,5 +1,35 @@
-@REM creating a virtual environment
+# git clone 
+
+# Navigate to project directory
+cd sune-backend
+
+# Create virtual environment
 python -m venv venv
 
-.\venv\Scripts\activate
-pip install django
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install Dependencies
+pip install -r requirements.txt
+
+# Copy example env file
+cp .env.example .env
+
+# Edit .env and set your values
+# At minimum, change SECRET_KEY for production
+
+python manage.py makemigrations
+python manage.py migrate
+
+# Create superuser for admin access
+python manage.py createsuperuser
+
+
+# Create sample categories and streams
+python manage.py shell < create_sample_data.py
+
+# Run Development Server
+python manage.py runserver
